@@ -10,20 +10,19 @@ export default function App() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
 
   function handleNext() {
-    if (step < 3) setStep(step + 1);
-  }
-
-  function handleOpen() {
-    setIsOpen(!isOpen);
+    if (step < 3) setStep((s) => s + 1);
   }
 
   return (
     <>
-      <button className="close" onClick={handleOpen}>
+      <button
+        className="close"
+        onClick={() => setIsOpen((currView) => !currView)}
+      >
         &times;
       </button>
       {isOpen && (
